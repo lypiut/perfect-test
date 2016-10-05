@@ -1,14 +1,11 @@
 import Vapor
+import HTTP
+import JSON
 
 let drop = Droplet()
 
-drop.get { req in
-    let lang = req.headers["Accept-Language"]?.string ?? "en"
-    return try drop.view.make("welcome", [
-    	"message": Node.string(drop.localization[lang, "welcome", "title"])
-    ])
+drop.get { _ -> ResponseRepresentable in
+    return try JSON(node: ["key": "value"])
 }
-
-drop.resource("posts", PostController())
 
 drop.run()
