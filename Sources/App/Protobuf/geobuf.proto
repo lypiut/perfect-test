@@ -1,6 +1,6 @@
 option optimize_for = LITE_RUNTIME;
 
-message Data {
+message Geojson {
     repeated string keys = 1; // global arrays of unique keys
 
     optional uint32 dimensions = 2 [default = 2]; // max coordinate dimensions

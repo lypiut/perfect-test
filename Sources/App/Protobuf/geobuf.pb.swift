@@ -10,9 +10,9 @@ import Foundation
 import SwiftProtobuf
 
 
-public struct Data: ProtobufGeneratedMessage {
-  public var swiftClassName: String {return "Data"}
-  public var protoMessageName: String {return "Data"}
+public struct Geojson: ProtobufGeneratedMessage {
+  public var swiftClassName: String {return "Geojson"}
+  public var protoMessageName: String {return "Geojson"}
   public var protoPackageName: String {return ""}
   public var jsonFieldNames: [String: Int] {return [
     "keys": 1,
@@ -32,12 +32,12 @@ public struct Data: ProtobufGeneratedMessage {
   ]}
 
   private class _StorageClass {
-    typealias ProtobufExtendedMessage = Data
+    typealias ProtobufExtendedMessage = Geojson
     var unknown = ProtobufUnknownStorage()
     var _keys: [String] = []
     var _dimensions: UInt32? = nil
     var _precision: UInt32? = nil
-    var _dataType = Data.OneOf_DataType()
+    var _dataType = Geojson.OneOf_DataType()
 
     init() {}
 
@@ -96,9 +96,9 @@ public struct Data: ProtobufGeneratedMessage {
   private var _storage = _StorageClass()
 
   public enum OneOf_DataType: ExpressibleByNilLiteral, ProtobufOneofEnum {
-    case featureCollection(Data.FeatureCollection)
-    case feature(Data.Feature)
-    case geometry(Data.Geometry)
+    case featureCollection(Geojson.FeatureCollection)
+    case feature(Geojson.Feature)
+    case geometry(Geojson.Geometry)
     case None
 
     public init(nilLiteral: ()) {
@@ -116,20 +116,20 @@ public struct Data: ProtobufGeneratedMessage {
       let handled: Bool
       switch protoFieldNumber {
       case 4:
-        var value: Data.FeatureCollection?
-        handled = try setter.decodeOptionalMessageField(fieldType: Data.FeatureCollection.self, value: &value)
+        var value: Geojson.FeatureCollection?
+        handled = try setter.decodeOptionalMessageField(fieldType: Geojson.FeatureCollection.self, value: &value)
         if let value = value, handled {
           self = .featureCollection(value)
         }
       case 5:
-        var value: Data.Feature?
-        handled = try setter.decodeOptionalMessageField(fieldType: Data.Feature.self, value: &value)
+        var value: Geojson.Feature?
+        handled = try setter.decodeOptionalMessageField(fieldType: Geojson.Feature.self, value: &value)
         if let value = value, handled {
           self = .feature(value)
         }
       case 6:
-        var value: Data.Geometry?
-        handled = try setter.decodeOptionalMessageField(fieldType: Data.Geometry.self, value: &value)
+        var value: Geojson.Geometry?
+        handled = try setter.decodeOptionalMessageField(fieldType: Geojson.Geometry.self, value: &value)
         if let value = value, handled {
           self = .geometry(value)
         }
@@ -161,7 +161,7 @@ public struct Data: ProtobufGeneratedMessage {
   }
 
   public struct Feature: ProtobufGeneratedMessage {
-    public var swiftClassName: String {return "Data.Feature"}
+    public var swiftClassName: String {return "Geojson.Feature"}
     public var protoMessageName: String {return "Feature"}
     public var protoPackageName: String {return ""}
     public var jsonFieldNames: [String: Int] {return [
@@ -182,11 +182,11 @@ public struct Data: ProtobufGeneratedMessage {
     ]}
 
     private class _StorageClass {
-      typealias ProtobufExtendedMessage = Data.Feature
+      typealias ProtobufExtendedMessage = Geojson.Feature
       var unknown = ProtobufUnknownStorage()
-      var _geometry: Data.Geometry? = nil
-      var _idType = Data.Feature.OneOf_IdType()
-      var _values: [Data.Value] = []
+      var _geometry: Geojson.Geometry? = nil
+      var _idType = Geojson.Feature.OneOf_IdType()
+      var _values: [Geojson.Value] = []
       var _properties: [UInt32] = []
       var _customProperties: [UInt32] = []
 
@@ -195,10 +195,10 @@ public struct Data: ProtobufGeneratedMessage {
       func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
         let handled: Bool
         switch protoFieldNumber {
-        case 1: handled = try setter.decodeRequiredMessageField(fieldType: Data.Geometry.self, value: &_geometry)
+        case 1: handled = try setter.decodeRequiredMessageField(fieldType: Geojson.Geometry.self, value: &_geometry)
         case 11, 12:
           handled = try _idType.decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
-        case 13: handled = try setter.decodeRepeatedMessageField(fieldType: Data.Value.self, value: &_values)
+        case 13: handled = try setter.decodeRepeatedMessageField(fieldType: Geojson.Value.self, value: &_values)
         case 14: handled = try setter.decodePackedField(fieldType: ProtobufUInt32.self, value: &_properties)
         case 15: handled = try setter.decodePackedField(fieldType: ProtobufUInt32.self, value: &_customProperties)
         default:
@@ -306,8 +306,8 @@ public struct Data: ProtobufGeneratedMessage {
       }
     }
 
-    public var geometry: Data.Geometry {
-      get {return _storage._geometry ?? Data.Geometry()}
+    public var geometry: Geojson.Geometry {
+      get {return _storage._geometry ?? Geojson.Geometry()}
       set {_uniqueStorage()._geometry = newValue}
     }
 
@@ -344,7 +344,7 @@ public struct Data: ProtobufGeneratedMessage {
     }
 
     ///   unique values
-    public var values: [Data.Value] {
+    public var values: [Geojson.Value] {
       get {return _storage._values}
       set {_uniqueStorage()._values = newValue}
     }
@@ -370,10 +370,10 @@ public struct Data: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(geometry: Data.Geometry? = nil,
+    public init(geometry: Geojson.Geometry? = nil,
       id: String? = nil,
       intId: Int64? = nil,
-      values: [Data.Value] = [],
+      values: [Geojson.Value] = [],
       properties: [UInt32] = [],
       customProperties: [UInt32] = [])
     {
@@ -404,7 +404,7 @@ public struct Data: ProtobufGeneratedMessage {
       try _storage.traverse(visitor: &visitor)
     }
 
-    public func _protoc_generated_isEqualTo(other: Data.Feature) -> Bool {
+    public func _protoc_generated_isEqualTo(other: Geojson.Feature) -> Bool {
       return _storage === other._storage || _storage.isEqualTo(other: other._storage)
     }
 
@@ -417,7 +417,7 @@ public struct Data: ProtobufGeneratedMessage {
   }
 
   public struct Geometry: ProtobufGeneratedMessage {
-    public var swiftClassName: String {return "Data.Geometry"}
+    public var swiftClassName: String {return "Geojson.Geometry"}
     public var protoMessageName: String {return "Geometry"}
     public var protoPackageName: String {return ""}
     public var jsonFieldNames: [String: Int] {return [
@@ -551,7 +551,7 @@ public struct Data: ProtobufGeneratedMessage {
 
     }
 
-    public var type: Data.Geometry.TypeEnum = Data.Geometry.TypeEnum.point
+    public var type: Geojson.Geometry.TypeEnum = Geojson.Geometry.TypeEnum.point
 
     ///   coordinate structure in lengths
     public var lengths: [UInt32] = []
@@ -559,19 +559,19 @@ public struct Data: ProtobufGeneratedMessage {
     ///   delta-encoded integer values
     public var coords: [Int64] = []
 
-    public var geometries: [Data.Geometry] = []
+    public var geometries: [Geojson.Geometry] = []
 
-    public var values: [Data.Value] = []
+    public var values: [Geojson.Value] = []
 
     public var customProperties: [UInt32] = []
 
     public init() {}
 
-    public init(type: Data.Geometry.TypeEnum = Data.Geometry.TypeEnum.point,
+    public init(type: Geojson.Geometry.TypeEnum = Geojson.Geometry.TypeEnum.point,
       lengths: [UInt32] = [],
       coords: [Int64] = [],
-      geometries: [Data.Geometry] = [],
-      values: [Data.Value] = [],
+      geometries: [Geojson.Geometry] = [],
+      values: [Geojson.Value] = [],
       customProperties: [UInt32] = [])
     {
       self.type = type
@@ -595,11 +595,11 @@ public struct Data: ProtobufGeneratedMessage {
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
-      case 1: handled = try setter.decodeRequiredField(fieldType: Data.Geometry.TypeEnum.self, value: &type)
+      case 1: handled = try setter.decodeRequiredField(fieldType: Geojson.Geometry.TypeEnum.self, value: &type)
       case 2: handled = try setter.decodePackedField(fieldType: ProtobufUInt32.self, value: &lengths)
       case 3: handled = try setter.decodePackedField(fieldType: ProtobufSInt64.self, value: &coords)
-      case 4: handled = try setter.decodeRepeatedMessageField(fieldType: Data.Geometry.self, value: &geometries)
-      case 13: handled = try setter.decodeRepeatedMessageField(fieldType: Data.Value.self, value: &values)
+      case 4: handled = try setter.decodeRepeatedMessageField(fieldType: Geojson.Geometry.self, value: &geometries)
+      case 13: handled = try setter.decodeRepeatedMessageField(fieldType: Geojson.Value.self, value: &values)
       case 15: handled = try setter.decodePackedField(fieldType: ProtobufUInt32.self, value: &customProperties)
       default:
         handled = false
@@ -612,7 +612,7 @@ public struct Data: ProtobufGeneratedMessage {
     }
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
-      try visitor.visitSingularField(fieldType: Data.Geometry.TypeEnum.self, value: type, protoFieldNumber: 1, protoFieldName: "type", jsonFieldName: "type", swiftFieldName: "type")
+      try visitor.visitSingularField(fieldType: Geojson.Geometry.TypeEnum.self, value: type, protoFieldNumber: 1, protoFieldName: "type", jsonFieldName: "type", swiftFieldName: "type")
       if !lengths.isEmpty {
         try visitor.visitPackedField(fieldType: ProtobufUInt32.self, value: lengths, protoFieldNumber: 2, protoFieldName: "lengths", jsonFieldName: "lengths", swiftFieldName: "lengths")
       }
@@ -631,7 +631,7 @@ public struct Data: ProtobufGeneratedMessage {
       unknown.traverse(visitor: &visitor)
     }
 
-    public func _protoc_generated_isEqualTo(other: Data.Geometry) -> Bool {
+    public func _protoc_generated_isEqualTo(other: Geojson.Geometry) -> Bool {
       if type != other.type {return false}
       if lengths != other.lengths {return false}
       if coords != other.coords {return false}
@@ -644,7 +644,7 @@ public struct Data: ProtobufGeneratedMessage {
   }
 
   public struct FeatureCollection: ProtobufGeneratedMessage {
-    public var swiftClassName: String {return "Data.FeatureCollection"}
+    public var swiftClassName: String {return "Geojson.FeatureCollection"}
     public var protoMessageName: String {return "FeatureCollection"}
     public var protoPackageName: String {return ""}
     public var jsonFieldNames: [String: Int] {return [
@@ -660,16 +660,16 @@ public struct Data: ProtobufGeneratedMessage {
 
     var unknown = ProtobufUnknownStorage()
 
-    public var features: [Data.Feature] = []
+    public var features: [Geojson.Feature] = []
 
-    public var values: [Data.Value] = []
+    public var values: [Geojson.Value] = []
 
     public var customProperties: [UInt32] = []
 
     public init() {}
 
-    public init(features: [Data.Feature] = [],
-      values: [Data.Value] = [],
+    public init(features: [Geojson.Feature] = [],
+      values: [Geojson.Value] = [],
       customProperties: [UInt32] = [])
     {
       if !features.isEmpty {
@@ -686,8 +686,8 @@ public struct Data: ProtobufGeneratedMessage {
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
-      case 1: handled = try setter.decodeRepeatedMessageField(fieldType: Data.Feature.self, value: &features)
-      case 13: handled = try setter.decodeRepeatedMessageField(fieldType: Data.Value.self, value: &values)
+      case 1: handled = try setter.decodeRepeatedMessageField(fieldType: Geojson.Feature.self, value: &features)
+      case 13: handled = try setter.decodeRepeatedMessageField(fieldType: Geojson.Value.self, value: &values)
       case 15: handled = try setter.decodePackedField(fieldType: ProtobufUInt32.self, value: &customProperties)
       default:
         handled = false
@@ -712,7 +712,7 @@ public struct Data: ProtobufGeneratedMessage {
       unknown.traverse(visitor: &visitor)
     }
 
-    public func _protoc_generated_isEqualTo(other: Data.FeatureCollection) -> Bool {
+    public func _protoc_generated_isEqualTo(other: Geojson.FeatureCollection) -> Bool {
       if features != other.features {return false}
       if values != other.values {return false}
       if customProperties != other.customProperties {return false}
@@ -722,7 +722,7 @@ public struct Data: ProtobufGeneratedMessage {
   }
 
   public struct Value: ProtobufGeneratedMessage {
-    public var swiftClassName: String {return "Data.Value"}
+    public var swiftClassName: String {return "Geojson.Value"}
     public var protoMessageName: String {return "Value"}
     public var protoPackageName: String {return ""}
     public var jsonFieldNames: [String: Int] {return [
@@ -858,7 +858,7 @@ public struct Data: ProtobufGeneratedMessage {
       }
     }
 
-    public var valueType: Data.Value.OneOf_ValueType = .None
+    public var valueType: Geojson.Value.OneOf_ValueType = .None
 
     public var doubleValue: Double? {
       get {
@@ -989,7 +989,7 @@ public struct Data: ProtobufGeneratedMessage {
       unknown.traverse(visitor: &visitor)
     }
 
-    public func _protoc_generated_isEqualTo(other: Data.Value) -> Bool {
+    public func _protoc_generated_isEqualTo(other: Geojson.Value) -> Bool {
       if valueType != other.valueType {return false}
       if unknown != other.unknown {return false}
       return true
@@ -1014,7 +1014,7 @@ public struct Data: ProtobufGeneratedMessage {
     set {_uniqueStorage()._precision = newValue}
   }
 
-  public var featureCollection: Data.FeatureCollection? {
+  public var featureCollection: Geojson.FeatureCollection? {
     get {
       if case .featureCollection(let v) = _storage._dataType {
         return v
@@ -1030,7 +1030,7 @@ public struct Data: ProtobufGeneratedMessage {
     }
   }
 
-  public var feature: Data.Feature? {
+  public var feature: Geojson.Feature? {
     get {
       if case .feature(let v) = _storage._dataType {
         return v
@@ -1046,7 +1046,7 @@ public struct Data: ProtobufGeneratedMessage {
     }
   }
 
-  public var geometry: Data.Geometry? {
+  public var geometry: Geojson.Geometry? {
     get {
       if case .geometry(let v) = _storage._dataType {
         return v
@@ -1074,9 +1074,9 @@ public struct Data: ProtobufGeneratedMessage {
   public init(keys: [String] = [],
     dimensions: UInt32? = nil,
     precision: UInt32? = nil,
-    featureCollection: Data.FeatureCollection? = nil,
-    feature: Data.Feature? = nil,
-    geometry: Data.Geometry? = nil)
+    featureCollection: Geojson.FeatureCollection? = nil,
+    feature: Geojson.Feature? = nil,
+    geometry: Geojson.Geometry? = nil)
   {
     let storage = _uniqueStorage()
     if !keys.isEmpty {
@@ -1103,7 +1103,7 @@ public struct Data: ProtobufGeneratedMessage {
     try _storage.traverse(visitor: &visitor)
   }
 
-  public func _protoc_generated_isEqualTo(other: Data) -> Bool {
+  public func _protoc_generated_isEqualTo(other: Geojson) -> Bool {
     return _storage === other._storage || _storage.isEqualTo(other: other._storage)
   }
 
@@ -1115,7 +1115,7 @@ public struct Data: ProtobufGeneratedMessage {
   }
 }
 
-public func ==(lhs: Data.OneOf_DataType, rhs: Data.OneOf_DataType) -> Bool {
+public func ==(lhs: Geojson.OneOf_DataType, rhs: Geojson.OneOf_DataType) -> Bool {
   switch (lhs, rhs) {
   case (.featureCollection(let l), .featureCollection(let r)): return l == r
   case (.feature(let l), .feature(let r)): return l == r
@@ -1125,7 +1125,7 @@ public func ==(lhs: Data.OneOf_DataType, rhs: Data.OneOf_DataType) -> Bool {
   }
 }
 
-public func ==(lhs: Data.Feature.OneOf_IdType, rhs: Data.Feature.OneOf_IdType) -> Bool {
+public func ==(lhs: Geojson.Feature.OneOf_IdType, rhs: Geojson.Feature.OneOf_IdType) -> Bool {
   switch (lhs, rhs) {
   case (.id(let l), .id(let r)): return l == r
   case (.intId(let l), .intId(let r)): return l == r
@@ -1134,7 +1134,7 @@ public func ==(lhs: Data.Feature.OneOf_IdType, rhs: Data.Feature.OneOf_IdType) -
   }
 }
 
-public func ==(lhs: Data.Value.OneOf_ValueType, rhs: Data.Value.OneOf_ValueType) -> Bool {
+public func ==(lhs: Geojson.Value.OneOf_ValueType, rhs: Geojson.Value.OneOf_ValueType) -> Bool {
   switch (lhs, rhs) {
   case (.stringValue(let l), .stringValue(let r)): return l == r
   case (.doubleValue(let l), .doubleValue(let r)): return l == r
